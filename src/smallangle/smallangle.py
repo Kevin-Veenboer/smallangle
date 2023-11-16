@@ -63,22 +63,66 @@ def tan(number):
 
 @cmd_group.command()
 @click.argument("error")
-def approx(error):
-    """Function that gives the maximum value at which the small-angle approximation holds
+@click.option(
+    "-t",
+    "--tangent/--no-tangent",
+    help="selects tangent small-angle approximation instead of sine",
+)
+@click.option(
+    "-c",
+    "--compare/--no-compare",
+    help="selects sine-tangent equality instead of sine small-angle approximation",
+)
+def approx(error, tangent, compare):
+    """Function that gives the maximum value at which the small-angle/equality approximation holds
 
     Args:
         error (float): the required accuracy for which the approximation has to hold
+        tangent (bool): flag for selecting the tangent small-angle approximation
+        compare (bool): flag for selecting the sine-tangent equality approximation
     """
-    for number in np.arange(0, 2 * pi, 0.001):
-        # check the difference, if it is greater than the required accuracy we give the maximum value
-        if abs(number - np.sin(number)) > float(error):
-            print(
-                f"For an accuracy of {error}, the small-angle approximation holds\nup to x = {number}"
-            )
-            return
-    print(
-        f"The given accuracy of {error} is so large that the small-angle approximation holds\nfor all values between 0 and 2 pi"
-    )
+
+    # Only one approximation can be selected at a time, if both -t and -c are given to approx, then only tangent will run
+    # Code for the tangent small angle approximation
+    if tangent:
+        for number in np.arange(0, 2 * pi, 0.001):
+            # check the difference, if it is greater than the required accuracy we give the maximum value
+            if abs(number - np.tan(number)) > float(error):
+                print(
+                    f"For an accuracy of {error}, the small-angle approximation holds\nup to x = {round(number,3)}"
+                )
+                return
+
+        print(
+            f"The given accuracy of {error} is so large that the tangent small-angle approximation holds\nfor all values between 0 and 2 pi"
+        )
+
+    # Code for the sine-tangent equality approximation
+    elif compare:
+        for number in np.arange(0, 2 * pi, 0.001):
+            # check the difference, if it is greater than the required accuracy we give the maximum value
+            if abs(np.sin(number) - np.tan(number)) > float(error):
+                print(
+                    f"For an accuracy of {error}, the sine-tangent equality approximation holds\nup to x = {round(number,3)}"
+                )
+                return
+
+        print(
+            f"The given accuracy of {error} is so large that the equality approximation holds\nfor all values between 0 and 2 pi"
+        )
+
+    # Code for the sine small angle approximation
+    else:
+        for number in np.arange(0, 2 * pi, 0.001):
+            # check the difference, if it is greater than the required accuracy we give the maximum value
+            if abs(number - np.sin(number)) > float(error):
+                print(
+                    f"For an accuracy of {error}, the small-angle approximation holds\nup to x = {round(number,3)}"
+                )
+                return
+        print(
+            f"The given accuracy of {error} is so large that the sine small-angle approximation holds\nfor all values between 0 and 2 pi"
+        )
 
 
 if __name__ == "__main__":
