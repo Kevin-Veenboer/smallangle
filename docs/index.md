@@ -1,17 +1,7 @@
-# Welcome to MkDocs
+# Welcome to the smallangle documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Here you will find information on the smallangle python package.</br></br> For detailed information on the package and the usage of the functions ou can visit:</br>
+[References](references.md)
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+If you want to see examples of how to use the code you can visit:</br>
+[Examples](examples.md)

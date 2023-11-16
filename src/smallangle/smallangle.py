@@ -5,9 +5,9 @@ This module allows the user to calculate values of tangent and sine between 0 an
 
 This module contains the following functions:
 
--`sin(number)` - gives the value of sine for a number of steps between 0 and 2 pi
--`tan(number)` - gives the value of tangent for a number of steps between 0 and 2 pi
--`approx(error, type_flag)` - tests the maximum value for some sine/tangent approximations
+-`sin(number)` - gives the value of sine for a number of steps between 0 and 2 pi\n
+-`tan(number)` - gives the value of tangent for a number of steps between 0 and 2 pi\n
+-`approx(error, type_flag)` - tests the maximum value for some sine/tangent approximations\n
 """
 
 import click
