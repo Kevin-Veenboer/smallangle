@@ -25,6 +25,16 @@ This part of the documentation shows some examples of how the smallangle package
 ### approx
 ```python
 >>>approx(0.01)
-For an accuracy of 0.01, the small-angle approximation holds
+For an accuracy of 0.01, the sine small-angle approximation holds
 up to x = 0.393
+```
+```python
+>>>approx(0.01, tangent = True)
+For an accuracy of 0.01, the tangent small-angle approximation holds
+up to x = 0.307
+```
+```python
+>>>approx(0.001, compare = True)
+For an accuracy of 0.001, the sine-tangent equality approximation holds
+up to x = 0.126
 ```

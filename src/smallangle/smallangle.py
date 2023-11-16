@@ -89,7 +89,7 @@ def approx(error, tangent, compare):
             # check the difference, if it is greater than the required accuracy we give the maximum value
             if abs(number - np.tan(number)) > float(error):
                 print(
-                    f"For an accuracy of {error}, the small-angle approximation holds\nup to x = {round(number,3)}"
+                    f"For an accuracy of {error}, the tangent small-angle approximation holds\nup to x = {round(number,3)}"
                 )
                 return
 
@@ -108,7 +108,7 @@ def approx(error, tangent, compare):
                 return
 
         print(
-            f"The given accuracy of {error} is so large that the equality approximation holds\nfor all values between 0 and 2 pi"
+            f"The given accuracy of {error} is so large that the sine-tangent equality approximation holds\nfor all values between 0 and 2 pi"
         )
 
     # Code for the sine small angle approximation
@@ -117,7 +117,7 @@ def approx(error, tangent, compare):
             # check the difference, if it is greater than the required accuracy we give the maximum value
             if abs(number - np.sin(number)) > float(error):
                 print(
-                    f"For an accuracy of {error}, the small-angle approximation holds\nup to x = {round(number,3)}"
+                    f"For an accuracy of {error}, the sine small-angle approximation holds\nup to x = {round(number,3)}"
                 )
                 return
         print(
